@@ -1,0 +1,55 @@
+# Compiled class files
+target/
+out/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Maven wrapper files (optional to ignore)
+.mvn/wrapper/maven-wrapper.jar
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Environment files
+.env
+*.local
+*.secret
+
+# Node.js or frontend artifacts (if present)
+node_modules/
+dist/
+build/
+
+# Lombok generated files (if any)
+lombok.config
+
+# Spring Boot specific
+application.properties
+application.yml
+application-*.yml
+application-*.properties
+
+# Don’t ignore if using placeholder properties in version control
+!application-example.properties
+!application-example.yml
+
+# Java build system files
+*.class
+*.jar
+*.war
+*.ear
