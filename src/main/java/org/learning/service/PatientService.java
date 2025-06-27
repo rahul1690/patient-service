@@ -2,6 +2,7 @@ package org.learning.service;
 
 import org.learning.dto.PatientRequestDTO;
 import org.learning.dto.PatientResponseDTO;
+import org.learning.exception.EmailAlreadyExistsException;
 import org.learning.mapper.PatientMapper;
 import org.learning.model.Patient;
 import org.learning.repository.PatientRepository;
@@ -16,16 +17,19 @@ public class PatientService {
     private final PatientRepository patientRepository;
 
     @Autowired
-    public PatientService(PatientRepository patientRepository){
-        this.patientRepository= patientRepository;
+    public PatientService(PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
     }
 
-    public List<PatientResponseDTO> getPatients(){
+    public List<PatientResponseDTO> getPatients() {
         List<Patient> patients = patientRepository.findAll(Sort.by("registeredDate").descending());
         return patients.stream().map(PatientMapper::toDTO).toList();
     }
 
-    public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO){
+    public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO) {
+        if (patientRepository.existsByEmail(patientRequestDTO.getEmail()))
+            throw new EmailAlreadyExistsException("A patient with this " +
+                    "email already exists " + patientRequestDTO.getEmail());
         Patient newPatient = patientRepository.save(PatientMapper.toPatient(patientRequestDTO));
         return PatientMapper.toDTO(newPatient);
     }
