@@ -1,6 +1,7 @@
 package org.learning.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.learning.model.Patient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,10 +23,18 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(EmailAlreadyExistsException.class)
-    public ResponseEntity<Map<String, String>> handlerEmailAlreadyExists(EmailAlreadyExistsException ex){
+    public ResponseEntity<Map<String, String>> handleEmailAlreadyExists(EmailAlreadyExistsException ex){
         log.warn("EmailAlreadyExistsException :: handlerEmailAlreadyExists -> {}",ex.getMessage());
         Map<String, String> errors = new LinkedHashMap<>();
         errors.put("error",ex.getMessage());
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(PatientNotFoundException.class)
+    public ResponseEntity<Map<String,String>> handlePatientNotFoundException(PatientNotFoundException ex){
+        log.warn("PatientNotFoundException :: handlePatientNotFoundException -> {}",ex.getMessage());
+        Map<String, String> errors = new LinkedHashMap<>();
+        errors.put("error","Patient not found");
         return ResponseEntity.badRequest().body(errors);
     }
 }

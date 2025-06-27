@@ -1,0 +1,35 @@
+[33mcommit 8b0cc5b6b512883a1dd78e2c0018b9aa65e746a1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Rahul Bhoje <rahulbhoje09@gmail.com>
+Date:   Fri Jun 27 12:02:48 2025 +0530
+
+    adding email already exists custom exception
+
+[33mcommit 9286aae11e947f65f5b422fb638a106c1356427b[m
+Author: Rahul Bhoje <rahulbhoje09@gmail.com>
+Date:   Fri Jun 27 11:50:10 2025 +0530
+
+    add global exception handler
+
+[33mcommit 77f8548a5c74fb36a4a3f5d6cf3ecae350b22cee[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Rahul Bhoje <rahulbhoje09@gmail.com>
+Date:   Fri Jun 27 11:40:11 2025 +0530
+
+    add create-patient api
+
+[33mcommit 5f3bc501f73b8fd409a9454266e42d7412c63755[m
+Author: Rahul Bhoje <rahulbhoje09@gmail.com>
+Date:   Fri Jun 27 11:19:35 2025 +0530
+
+    add Get-patients api
+
+[33mcommit 62274e92c8e3602cee0bf7e1aeaec74224688b3d[m
+Author: Rahul Bhoje <rahulbhoje09@gmail.com>
+Date:   Fri Jun 27 10:00:31 2025 +0530
+
+    add patient entity
+
+[33mcommit bb35936a90a4ce0978187f9718637192661fa112[m
+Author: Rahul Bhoje <rahulbhoje09@gmail.com>
+Date:   Thu Jun 26 11:49:15 2025 +0530
+
+    initial commit
