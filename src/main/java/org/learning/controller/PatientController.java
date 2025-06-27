@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.groups.Default;
 import org.learning.dto.PatientRequestDTO;
 import org.learning.dto.PatientResponseDTO;
+import org.learning.dto.validators.CreatePatientValidationGroup;
 import org.learning.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,8 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity<PatientResponseDTO> createPatient(@Valid @RequestBody PatientRequestDTO patientRequestDTO) {
+    public ResponseEntity<PatientResponseDTO> createPatient(
+            @Validated({Default.class, CreatePatientValidationGroup.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
         return ResponseEntity.accepted().body(patientResponseDTO);
     }

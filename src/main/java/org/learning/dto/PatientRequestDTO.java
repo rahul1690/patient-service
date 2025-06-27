@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.learning.dto.validators.CreatePatientValidationGroup;
 
 @Data
 @AllArgsConstructor
@@ -26,6 +27,6 @@ public class PatientRequestDTO {
     @NotBlank(message = "Date of date is required")
     private String dateOfBirth;
 
-    @NotNull(message = "Registered date is required")
+    @NotBlank(groups = CreatePatientValidationGroup.class,message = "Registered date is required")
     private String registeredDate;
 }
